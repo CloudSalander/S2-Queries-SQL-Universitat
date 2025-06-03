@@ -35,7 +35,12 @@ INNER JOIN persona ON persona.id = alumno_se_matricula_asignatura.id_alumno
 WHERE persona.nif = '26902806M';
 
 -- 8. Retorna un llistat amb el nom de tots els departaments que tenen professors/es que imparteixen alguna assignatura en el Grau en Enginyeria Informàtica (Pla 2015). (nombre)
-
+select persona.nombre, apellido1, apellido2
+FROM persona
+INNER JOIN alumno_se_matricula_asignatura ON alumno_se_matricula_asignatura.id_alumno = persona.id
+INNER JOIN curso_escolar ON curso_escolar.id = alumno_se_matricula_asignatura.id_curso_escolar
+WHERE anyo_inicio = 2018 AND anyo_fin = 2019
+GROUP BY persona.id;
 
 -- 9. Retorna un llistat amb tots els alumnes que s'han matriculat en alguna assignatura durant el curs escolar 2018/2019. (nombre, apellido1, apellido2)
 select persona.nombre, apellido1, apellido2
