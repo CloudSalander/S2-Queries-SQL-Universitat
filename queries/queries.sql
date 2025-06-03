@@ -128,11 +128,9 @@ INNER JOIN asignatura ON asignatura.id_grado = grado.id
 GROUP BY grado.id, asignatura.tipo;
 
 -- 23. Retorna un llistat que mostri quants alumnes s'han matriculat d'alguna assignatura en cadascun dels cursos escolars. El resultat haurà de mostrar dues columnes, una columna amb l'any d'inici del curs escolar i una altra amb el nombre d'alumnes matriculats. (anyo_inicio, total)
-select anyo_inicio, COUNT(*) as total
-FROM alumno_se_matricula_asignatura
-INNER JOIN curso_escolar ON curso_escolar.id = alumno_se_matricula_asignatura.id_alumno
-GROUP BY alumno_se_matricula_asignatura.id_alumno;
-
+SELECT * 
+froM alumno_se_matricula_asignatura
+INNER JOIN curso_escolar ON curso_escolar.id = alumno_se_matricula_asignatura.id_curso_escolar
 
 -- 24. Retorna un llistat amb el nombre d'assignatures que imparteix cada professor/a. El llistat ha de tenir en compte aquells professors/es que no imparteixen cap assignatura. El resultat mostrarà cinc columnes: id, nom, primer cognom, segon cognom i nombre d'assignatures. El resultat estarà ordenat de major a menor pel nombre d'assignatures. (id, nombre, apellido1, apellido2, total)
 SELECT persona.id, persona.nombre, persona.apellido1, persona.apellido2, COUNT(asignatura.id) total
@@ -148,8 +146,7 @@ WHERE persona.fecha_nacimiento = (SELECT MAX(fecha_nacimiento) FROM persona WHER
 
 
 -- 26. Retorna un llistat amb els professors/es que tenen un departament associat i que no imparteixen cap assignatura. (apellido1, apellido2, nombre)
-SELECT apellido1,apellido2,persona.nombre
+SELECT apellido1,apellido2, persona.nombre as nombre
 FROM persona
-RIGHT JOIN profesor ON profesor.id_profesor = persona.id
-LEFT JOIN asignatura ON asignatura.id_profesor = profesor.id_profesor
-GROUP BY asignatura.id;
+INNER JOIN profesor ON profesor.id_profesor = persona.id
+LEFT JOIN asignatura ON asignatura.id_profesor = profesor.id_profesor;
