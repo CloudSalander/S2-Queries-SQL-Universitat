@@ -108,21 +108,21 @@ LEFT JOIN profesor ON profesor.id_departamento = departamento.id
 GROUP BY departamento.id;
 
 -- 20. Retorna un llistat amb el nom de tots els graus existents en la base de dades i el nombre d'assignatures que té cadascun. Tingues en compte que poden existir graus que no tenen assignatures associades. Aquests graus també han d'aparèixer en el llistat. El resultat haurà d'estar ordenat de major a menor pel nombre d'assignatures. (grau, total)
-SELECT grado.nombre, COUNT(asignatura.id) as total
+SELECT grado.nombre as grau, COUNT(asignatura.id) as total
 FROM grado
 LEFT JOIN asignatura ON asignatura.id_grado = grado.id
 GROUP BY grado.id
 order by total DESC;
 
 -- 21. Retorna un llistat amb el nom de tots els graus existents en la base de dades i el nombre d'assignatures que té cadascun, dels graus que tinguin més de 40 assignatures associades. (grau, total)
-SELECT grado.nombre, COUNT(*) as total
+SELECT grado.nombre as grau, COUNT(*) as total
 FROM grado
 INNER JOIN asignatura ON asignatura.id_grado = grado.id
 GROUP BY grado.id
 HAVING COUNT(*) > 40;
 
 -- 22. Retorna un llistat que mostri el nom dels graus i la suma del nombre total de crèdits que hi ha per a cada tipus d'assignatura. El resultat ha de tenir tres columnes: nom del grau, tipus d'assignatura i la suma dels crèdits de totes les assignatures que hi ha d'aquest tipus. (grau, tipus, total_creditos)
-select grado.nombre as nombre, asignatura.tipo, SUM(creditos) as total_creditos
+select grado.nombre as grau, asignatura.tipo, SUM(creditos) as total_creditos
 FROM grado
 INNER JOIN asignatura ON asignatura.id_grado = grado.id
 GROUP BY grado.id, asignatura.tipo;
