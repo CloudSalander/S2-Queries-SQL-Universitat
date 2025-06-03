@@ -2,104 +2,68 @@
 
 
 ## 📈 Resumen
-✅ 13 correctas de 25 queries
+✅ 18 correctas de 26 queries
 
 ## ✅ Query 1: Correcto
 
-⏱ Tiempo: 0.45 ms
+⏱ Tiempo: 0.39 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 2: Correcto
 
-⏱ Tiempo: 0.34 ms
+⏱ Tiempo: 0.32 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 3: Correcto
 
-⏱ Tiempo: 0.30 ms
+⏱ Tiempo: 0.31 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 4: Correcto
 
-⏱ Tiempo: 0.31 ms
+⏱ Tiempo: 0.33 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 5: Correcto
 
-⏱ Tiempo: 0.32 ms
+⏱ Tiempo: 0.33 ms
 ✅ Se usó índice(s) en la consulta: id_grado
 
 ---
 
-## ❌ Query 6: Incorrecto
-```diff
---- 
-+++ 
-@@ -1,13 +1,13 @@
- apellido1 | apellido2 | nombre | departamento
--Fahey | Considine | Antonio | Economía y Empresa
-+Ramirez | Gea | Zoe | Informática
- Hamill | Kozey | Manolo | Informática
-+Schmidt | Fisher | David | Matemáticas
- Kohler | Schoen | Alejandro | Matemáticas
- Lemke | Rutherford | Cristina | Economía y Empresa
-+Fahey | Considine | Antonio | Economía y Empresa
-+Spencer | Lakin | Esther | Educación
-+Streich | Hirthe | Carmen | Educación
-+Ruecker | Upton | Guillermo | Educación
- Monahan | Murray | Micaela | Agronomía
--Ramirez | Gea | Zoe | Informática
--Ruecker | Upton | Guillermo | Educación
--Schmidt | Fisher | David | Matemáticas
-+Stiedemann | Morissette | Alfredo | Química y Física
- Schowalter | Muller | Francesca | Química y Física
--Spencer | Lakin | Esther | Educación
--Stiedemann | Morissette | Alfredo | Química y Física
--Streich | Hirthe | Carmen | Educación
-```
+## ✅ Query 6: Correcto
 
-⏱ Tiempo: 0.36 ms
-✅ Se usó índice(s) en la consulta: PRIMARY, id_departamento
+⏱ Tiempo: 0.37 ms
+✅ Se usó índice(s) en la consulta: id_departamento, PRIMARY
 
 ---
 
 ## ✅ Query 7: Correcto
 
-⏱ Tiempo: 0.58 ms
-✅ Se usó índice(s) en la consulta: PRIMARY,id_asignatura,id_curso_escolar, PRIMARY,nif, PRIMARY
+⏱ Tiempo: 0.54 ms
+✅ Se usó índice(s) en la consulta: PRIMARY,nif, PRIMARY, PRIMARY,id_asignatura,id_curso_escolar
 
 ---
 
-## ❌ Query 8: Incorrecto
-```diff
---- 
-+++ 
-@@ -1,2 +1,4 @@
--nombre
--Informática
-+nombre | apellido1 | apellido2
-+Inma | Lakin | Yundt
-+Irene | Hernández | Martínez
-+Sonia | Gea | Ruiz
-```
+## ✅ Query 8: Correcto
 
-⏱ Tiempo: 0.37 ms
-✅ Se usó índice(s) en la consulta: PRIMARY,id_curso_escolar, PRIMARY, PRIMARY,nif
+⏱ Tiempo: 0.39 ms
+✅ Se usó índice(s) en la consulta: PRIMARY, PRIMARY,id_departamento, id_profesor,id_grado
 
 ---
 
 ## ✅ Query 9: Correcto
 
-⏱ Tiempo: 0.38 ms
-✅ Se usó índice(s) en la consulta: PRIMARY,id_curso_escolar, PRIMARY, PRIMARY,nif
+⏱ Tiempo: 0.37 ms
+✅ Se usó índice(s) en la consulta: PRIMARY,nif, PRIMARY,id_curso_escolar, PRIMARY
 
 ---
 
@@ -119,7 +83,7 @@
 
 ## ✅ Query 12: Correcto
 
-⏱ Tiempo: 0.41 ms
+⏱ Tiempo: 0.31 ms
 ✅ Se usó índice(s) en la consulta: id_departamento
 
 ---
@@ -145,14 +109,14 @@
  Schowalter | Muller | Francesca
 ```
 
-⏱ Tiempo: 0.40 ms
-✅ Se usó índice(s) en la consulta: id_profesor, PRIMARY,nif, PRIMARY
+⏱ Tiempo: 0.36 ms
+✅ Se usó índice(s) en la consulta: PRIMARY,nif, PRIMARY, id_profesor
 
 ---
 
 ## ✅ Query 14: Correcto
 
-⏱ Tiempo: 0.36 ms
+⏱ Tiempo: 0.30 ms
 ✅ Se usó índice(s) en la consulta: id_profesor
 
 ---
@@ -161,99 +125,62 @@
 ```diff
 --- 
 +++ 
-@@ -1,9 +1,24 @@
- nombre
- Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Informática
-+Matemáticas
- Matemáticas
- Economía y Empresa
-+Economía y Empresa
-+Educación
-+Educación
- Educación
- Agronomía
-+Química y Física
- Química y Física
- Filología
- Derecho
+@@ -1,10 +1,9 @@
+-nombre
+-Informática
+-Matemáticas
+-Economía y Empresa
+-Educación
+-Agronomía
+-Química y Física
+-Filología
+-Derecho
+-Biología y Geología
++id | nombre
++2.00 | Matemáticas
++3.00 | Economía y Empresa
++4.00 | Educación
++5.00 | Agronomía
++6.00 | Química y Física
++7.00 | Filología
++8.00 | Derecho
++9.00 | Biología y Geología
 ```
 
-⏱ Tiempo: 0.42 ms
-✅ Se usó índice(s) en la consulta: id_asignatura, id_profesor, id_departamento
+⏱ Tiempo: 0.35 ms
+✅ Se usó índice(s) en la consulta: id_profesor, PRIMARY,id_departamento
+
+🚨 **Problemas detectados:**
+⚠️ Evitar `SELECT *`. Usar solo las columnas necesarias.
+⚠️ Considerar `EXISTS` en lugar de `IN` para eficiencia.
 
 ---
 
 ## ✅ Query 16: Correcto
 
-⏱ Tiempo: 0.35 ms
+⏱ Tiempo: 0.29 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 17: Correcto
 
-⏱ Tiempo: 0.33 ms
+⏱ Tiempo: 0.30 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
-## ❌ Query 18: Incorrecto
-```diff
---- 
-+++ 
-@@ -1,4 +1,4 @@
--departamento | total
-+nombre | total
- Educación | 3.00
- Informática | 2.00
- Matemáticas | 2.00
-```
+## ✅ Query 18: Correcto
 
 ⏱ Tiempo: 0.37 ms
-✅ Se usó índice(s) en la consulta: PRIMARY, id_departamento
+✅ Se usó índice(s) en la consulta: id_departamento, PRIMARY
 
 ---
 
-## ❌ Query 19: Incorrecto
-```diff
---- 
-+++ 
-@@ -1,10 +1,11 @@
--departamento | total
--Informática | 2.00
--Matemáticas | 2.00
--Economía y Empresa | 2.00
--Educación | 3.00
--Agronomía | 1.00
--Química y Física | 2.00
--Filología | 0.00
--Derecho | 0.00
--Biología y Geología | 0.00
-+nombre | total
-+Grado en Ingeniería Informática (Plan 2015) | 51.00
-+Grado en Biotecnología (Plan 2015) | 32.00
-+Grado en Ingeniería Agrícola (Plan 2015) | 0.00
-+Grado en Ingeniería Eléctrica (Plan 2014) | 0.00
-+Grado en Ingeniería Electrónica Industrial (Plan 2010) | 0.00
-+Grado en Ingeniería Mecánica (Plan 2010) | 0.00
-+Grado en Ingeniería Química Industrial (Plan 2010) | 0.00
-+Grado en Ciencias Ambientales (Plan 2009) | 0.00
-+Grado en Matemáticas (Plan 2010) | 0.00
-+Grado en Química (Plan 2009) | 0.00
-```
+## ✅ Query 19: Correcto
 
-⏱ Tiempo: 0.38 ms
-✅ Se usó índice(s) en la consulta: id_grado, PRIMARY
+⏱ Tiempo: 0.33 ms
+✅ Se usó índice(s) en la consulta: id_departamento, PRIMARY
 
 ---
 
@@ -261,22 +188,15 @@
 ```diff
 --- 
 +++ 
-@@ -1,11 +1,2 @@
+@@ -1,4 +1,4 @@
 -grau | total
 +nombre | total
  Grado en Ingeniería Informática (Plan 2015) | 51.00
--Grado en Biotecnología (Plan 2015) | 32.00
--Grado en Ingeniería Agrícola (Plan 2015) | 0.00
--Grado en Ingeniería Eléctrica (Plan 2014) | 0.00
--Grado en Ingeniería Electrónica Industrial (Plan 2010) | 0.00
--Grado en Ingeniería Mecánica (Plan 2010) | 0.00
--Grado en Ingeniería Química Industrial (Plan 2010) | 0.00
--Grado en Ciencias Ambientales (Plan 2009) | 0.00
--Grado en Matemáticas (Plan 2010) | 0.00
--Grado en Química (Plan 2009) | 0.00
+ Grado en Biotecnología (Plan 2015) | 32.00
+ Grado en Ingeniería Agrícola (Plan 2015) | 0.00
 ```
 
-⏱ Tiempo: 0.41 ms
+⏱ Tiempo: 0.33 ms
 ✅ Se usó índice(s) en la consulta: id_grado, PRIMARY
 
 ---
@@ -285,18 +205,13 @@
 ```diff
 --- 
 +++ 
-@@ -1,2 +1,6 @@
+@@ -1,2 +1,2 @@
 -grau | total
--Grado en Ingeniería Informática (Plan 2015) | 51.00
-+nombre | tipo | total_creditos
-+Grado en Ingeniería Informática (Plan 2015) | básica | 72.00
-+Grado en Ingeniería Informática (Plan 2015) | obligatoria | 54.00
-+Grado en Ingeniería Informática (Plan 2015) | optativa | 180.00
-+Grado en Biotecnología (Plan 2015) | básica | 60.00
-+Grado en Biotecnología (Plan 2015) | obligatoria | 120.00
++nombre | total
+ Grado en Ingeniería Informática (Plan 2015) | 51.00
 ```
 
-⏱ Tiempo: 0.37 ms
+⏱ Tiempo: 0.33 ms
 ✅ Se usó índice(s) en la consulta: id_grado, PRIMARY
 
 ---
@@ -305,21 +220,16 @@
 ```diff
 --- 
 +++ 
-@@ -1,6 +1,4 @@
+@@ -1,4 +1,4 @@
 -grau | tipo | total_creditos
--Grado en Ingeniería Informática (Plan 2015) | básica | 72.00
--Grado en Ingeniería Informática (Plan 2015) | obligatoria | 54.00
--Grado en Ingeniería Informática (Plan 2015) | optativa | 180.00
--Grado en Biotecnología (Plan 2015) | básica | 60.00
--Grado en Biotecnología (Plan 2015) | obligatoria | 120.00
-+anyo_inicio | total
-+2014.00 | 3.00
-+2015.00 | 3.00
-+2017.00 | 3.00
++nombre | tipo | total_creditos
+ Grado en Ingeniería Informática (Plan 2015) | básica | 72.00
+ Grado en Ingeniería Informática (Plan 2015) | obligatoria | 54.00
+ Grado en Ingeniería Informática (Plan 2015) | optativa | 180.00
 ```
 
-⏱ Tiempo: 0.35 ms
-✅ Se usó índice(s) en la consulta: PRIMARY,id_asignatura,id_curso_escolar, PRIMARY
+⏱ Tiempo: 0.33 ms
+✅ Se usó índice(s) en la consulta: id_grado, PRIMARY
 
 ---
 
@@ -327,13 +237,27 @@
 ```diff
 --- 
 +++ 
-@@ -1,3 +1,25 @@
--anyo_inicio | total
--2014.00 | 3.00
+@@ -1,3 +1,4 @@
+ anyo_inicio | total
+ 2014.00 | 3.00
 -2018.00 | 3.00
-+id | nombre | apellido1 | apellido2 | total
-+14.00 | Manolo | Hamill | Kozey | 11.00
-+3.00 | Zoe | Ramirez | Gea | 10.00
++2015.00 | 3.00
++2017.00 | 3.00
+```
+
+⏱ Tiempo: 0.33 ms
+✅ Se usó índice(s) en la consulta: PRIMARY, PRIMARY,id_asignatura,id_curso_escolar
+
+---
+
+## ❌ Query 24: Incorrecto
+```diff
+--- 
++++ 
+@@ -1,13 +1,25 @@
+ id | nombre | apellido1 | apellido2 | total
+ 14.00 | Manolo | Hamill | Kozey | 11.00
+ 3.00 | Zoe | Ramirez | Gea | 10.00
 +13.00 | Alfredo | Stiedemann | Morissette | 0.00
 +24.00 | Sonia | Gea | Ruiz | 0.00
 +23.00 | Irene | Hernández | Martínez | 0.00
@@ -353,25 +277,7 @@
 +8.00 | Cristina | Lemke | Rutherford | 0.00
 +7.00 | Ismael | Strosin | Turcotte | 0.00
 +6.00 | José | Koss | Bayer | 0.00
-+5.00 | David | Schmidt | Fisher | 0.00
-+4.00 | Pedro | Heller | Pagac | 0.00
-+2.00 | Juan | Saez | Vega | 0.00
-```
-
-⏱ Tiempo: 0.41 ms
-✅ Se usó índice(s) en la consulta: id_profesor, PRIMARY,nif
-
----
-
-## ❌ Query 24: Incorrecto
-```diff
---- 
-+++ 
-@@ -1,13 +1,2 @@
--id | nombre | apellido1 | apellido2 | total
--14.00 | Manolo | Hamill | Kozey | 11.00
--3.00 | Zoe | Ramirez | Gea | 10.00
--5.00 | David | Schmidt | Fisher | 0.00
+ 5.00 | David | Schmidt | Fisher | 0.00
 -15.00 | Alejandro | Kohler | Schoen | 0.00
 -8.00 | Cristina | Lemke | Rutherford | 0.00
 -16.00 | Antonio | Fahey | Considine | 0.00
@@ -381,11 +287,18 @@
 -18.00 | Micaela | Monahan | Murray | 0.00
 -13.00 | Alfredo | Stiedemann | Morissette | 0.00
 -20.00 | Francesca | Schowalter | Muller | 0.00
-+id | nif | nombre | apellido1 | apellido2 | ciudad | direccion | telefono | fecha_nacimiento | sexo | tipo
-+4.00 | 17105885A | Pedro | Heller | Pagac | Almería | C/ Estrella fugaz | NULL | 2000-10-05 | H | alumno
++4.00 | Pedro | Heller | Pagac | 0.00
++2.00 | Juan | Saez | Vega | 0.00
 ```
 
-⏱ Tiempo: 0.37 ms
+⏱ Tiempo: 0.35 ms
+✅ Se usó índice(s) en la consulta: PRIMARY,nif, id_profesor
+
+---
+
+## ✅ Query 25: Correcto
+
+⏱ Tiempo: 0.35 ms
 🔍 No se usó ningún índice en esta consulta.
 
 🚨 **Problemas detectados:**
@@ -393,6 +306,6 @@
 
 ---
 
-## ❌ Query 25: Error
+## ❌ Query 26: Error
 - **Descripción**: 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'universidad.persona.apellido1' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
 
