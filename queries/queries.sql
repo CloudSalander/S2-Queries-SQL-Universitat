@@ -74,8 +74,7 @@ select apellido1, apellido2, persona.nombre
 FROM persona
 LEFT JOIN profesor ON profesor.id_profesor = persona.id
 LEFT JOIN asignatura ON asignatura.id_profesor = profesor.id_profesor
-WHERE persona.tipo = 'profesor' AND asignatura.id IS NULL
-GROUP BY persona.id;
+WHERE persona.tipo = 'profesor' AND asignatura.id IS NULL;
 
 -- 14. Retorna un llistat amb les assignatures que no tenen un professor/a assignat. (id, nombre)
 SELECT id,nombre
@@ -136,6 +135,7 @@ INNER JOIN curso_escolar ON curso_escolar.id = alumno_se_matricula_asignatura.id
 SELECT persona.id, persona.nombre, persona.apellido1, persona.apellido2, COUNT(asignatura.id) total
 FROM persona
 LEFT JOIN asignatura ON asignatura.id_profesor = persona.id
+where persona.tipo = 'profesor'
 GROUP BY persona.id
 order by total DESC;
 
@@ -146,7 +146,5 @@ WHERE persona.fecha_nacimiento = (SELECT MAX(fecha_nacimiento) FROM persona WHER
 
 
 -- 26. Retorna un llistat amb els professors/es que tenen un departament associat i que no imparteixen cap assignatura. (apellido1, apellido2, nombre)
-SELECT apellido1,apellido2, persona.nombre as nombre
-FROM persona
-INNER JOIN profesor ON profesor.id_profesor = persona.id
-LEFT JOIN asignatura ON asignatura.id_profesor = profesor.id_profesor;
+select *
+from persona;
